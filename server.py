@@ -28,8 +28,9 @@ def guess(guess_name):
     age = ageresponse.json()
     return render_template("guess.html", name=name.title(), GENDER=gender["gender"], AGE=age["age"])
 
-@app.route("/blog")
-def blod():
+@app.route("/blog/<num>")
+def blog(num):
+    print(num)
     blog_url = "https://api.npoint.io/c790b4d5cab58020d391"
     response = requests.get(url=blog_url)
     all_posts = response.json()
